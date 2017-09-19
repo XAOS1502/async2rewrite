@@ -19,9 +19,11 @@ async def on_message(message):
             if log.author == message.author:
                 counter += 1
 
-        await client.edit_message(tmp, 'You have {} messages.'.format(counter))
+        await client.edit_message(tmp, f'You have {counter} messages.')
     elif message.content.startswith('!sleep'):
         await asyncio.sleep(5)
         await client.send_message(message.channel, 'Done sleeping')
 
-client.run('token')
+if not os.environ.get('TOKEN'):
+  print("no token found!")
+client.run(os.environ.get('TOKEN').strip('\"'))
