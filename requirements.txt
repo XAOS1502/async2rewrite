@@ -1,1 +1,2 @@
 py-backwards-astunparse>=1.5.0.post3
+async2rewrite
